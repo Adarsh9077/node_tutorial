@@ -2,8 +2,9 @@ const http = require("http");
 
 const server = http.createServer((req, res) => {
   res.writeHead(200, { "content-type": "text/html" });
-  res.write(
-    `<div className="container" style="height:500px;display:flex;     
+  if (req.url == "/") {
+    res.write(
+      `<div className="container" style="height:500px;display:flex;     
     align-items: center;
     justify-content: center;">
     <form action="/submit" className="formId" method="post">
@@ -22,7 +23,11 @@ const server = http.createServer((req, res) => {
     <center><button type="submit">Submit</button></center>
     </form>
     </div>`
-  );
+    );
+  } else if (req.url == "/submit") {
+    res.write("<h1>Form Submit successful</h1>");
+  }
+  res.end();
 });
 
 server.listen(3650);
