@@ -18,22 +18,29 @@ const server = http.createServer((req, res) => {
         req.on("data", (chunk) => {
           dataBody.push(chunk);
         });
-        var userInfo = {
-          userName: "",
-          userEmail: "",
-        };
         req.on("end", () => {
           let rawData = Buffer.concat(dataBody).toString();
           let readableData = queryString.parse(rawData);
           console.log(rawData);
           console.log("@@@@@@@\n");
           console.log(readableData["email"]);
-          userInfo["userName"] = readableData["name"];
-          userInfo["userEmail"] = readableData["email"];
+          let dataString = `My name is ${readableData["name"]} and email is ${readableData["email"]}`;
+          fs.writeFile(
+            "text/" + readableData["name"] + ".txt",
+            dataString,
+            "utf-8",
+            (err) => {
+              if (err) {
+                res.end("Internal Server Error");
+                return false;
+              } else {
+                console.log("File was create.......");
+              }
+            }
+          );
         });
-        //! below was error(bug) not print in client side data pass
         res.write(`
-            <h1>Form Submit Successfully ${userInfo["userName"]}</h1>
+            <h1>Form Submit Successfully</h1>
             `);
         res.end();
       }
