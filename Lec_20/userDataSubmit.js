@@ -9,16 +9,20 @@ function userDataSubmit(req, res) {
   req.on("end", () => {
     let rawData = Buffer.concat(dataBody).toString();
     readableData = queryString.parse(rawData);
-    console.log(readableData);
-  });
-  res.write(`    <div className="container" style="
+    console.log(readableData["name"]);
+    res.writeHead(200, { "Content-Type": "text/html" });
+    res.write(`    <div className="container" style="
     height:500px;
-    display:flex;     
+    display:flex;
+    flex-direction:column;     
     align-items: center;
     justify-content: center;">
        <h2>Form Submit Successfully</h2>
-       <p>.</p>
+       <!--</br> -->
+       <p>My Name is ${readableData.name}</p>
     </div>`);
+    res.end();
+  });
 }
 
 module.exports = userDataSubmit;
