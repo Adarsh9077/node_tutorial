@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cavaza</title>
+    <!-- Swiper styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/10.0.4/swiper-bundle.min.css" />
+
+    <!-- lightgallery styles -->
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/css/lightgallery.min.css'>
+    <link rel='stylesheet'
+        href='https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/css/lightgallery-bundle.min.css'>
+    <link rel="stylesheet" href="assets/css/aos.css">
+    <link rel="stylesheet" href="assets/css/slick.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="assets/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/light-gallery-master/assets/css/lightgallery-bundle.min.css">
+
+    <!-- Custom Css -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive-style.css">
+
+    <!-- Font Awesome link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- <style>
+        .swiper {
+            width: 100%;
+            height: 75vh;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style> -->
+    <style>
+        html,
+        body {
+            position: relative;
+            height: 100%;
+        }
+
+        body {
+            background: #eee;
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            color: #000;
+            margin: 0;
+            padding: 0;
+        }
+
+        .swiper2 {
+            width: 100%;
+            height: 100%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+            height: calc((100% - 30px) / 2) !important;
+
+            /* Center slide text vertically */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- <div class="swiper swiper-container" id="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <a data-src="assets/images/home-feast-img-01.jpg">
+                    <img src="assets/images/home-feast-img-01.jpg" alt="">
+                </a>
+            </div>
+            <div class="swiper-slide">
+                <a data-src="assets/images/home-feast-img-02.jpg">
+                    <img src="assets/images/home-feast-img-02.jpg" alt="">
+                </a>
+            </div>
+            <div class="swiper-slide">
+                <a data-src="assets/images/home-feast-img-03.jpg">
+                    <img src="assets/images/home-feast-img-03.jpg" alt="">
+                </a>
+            </div>
+            <div class="swiper-slide">
+                <a data-src="assets/images/home-feast-img-05.jpg">
+                    <img src="assets/images/home-feast-img-05.jpg" alt="">
+                </a>
+            </div>
+            <div class="swiper-slide">
+                <a data-src="assets/images/home-feast-img-06.jpg">
+                    <img src="assets/images/home-feast-img-06.jpg" alt="">
+                </a>
+            </div>
+            <div class="swiper-slide">
+                <a data-src="assets/images/home-feast-img-07.jpg">
+                    <img src="assets/images/home-feast-img-07.jpg" alt="">
+                </a>
+            </div>
+            <div class="swiper-slide">
+                <a data-src="assets/images/home-feast-img-08.jpg">
+                    <img src="assets/images/home-feast-img-08.jpg" alt="">
+                </a>
+            </div>
+
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div> -->
+
+
+
+    <!-- <div class="feast-slider">
+                            <div class="feast-slider-box"><img src="assets/images/home-feast-img-01.jpg" alt=""
+                                    class="img-fluid main"></div>
+                            <div class="feast-slider-box"><img src="assets/images/home-feast-img-02.jpg" alt=""
+                                    class="img-fluid main"></div>
+                            <div class="feast-slider-box"><img src="assets/images/home-feast-img-03.jpg" alt=""
+                                    class="img-fluid main"></div>
+                            <div class="feast-slider-box"><img src="assets/images/home-feast-img-08.jpg" alt=""
+                                    class="img-fluid main"></div>
+                            <div class="feast-slider-box"><img src="assets/images/home-feast-img-05.jpg" alt=""
+                                    class="img-fluid main"></div>
+                            <div class="feast-slider-box"><img src="assets/images/home-feast-img-06.jpg" alt=""
+                                    class="img-fluid main"></div>
+                            <div class="feast-slider-box"><img src="assets/images/home-feast-img-07.jpg" alt=""
+                                    class="img-fluid main"></div>
+                            <div class="feast-slider-box"><img src="assets/images/home-feast-img-08.jpg" alt=""
+                                    class="img-fluid main"></div>
+                        </div> -->
+
+    <div class="swiper mySwiper2">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">Slide 1</div>
+            <div class="swiper-slide">Slide 2</div>
+            <div class="swiper-slide">Slide 3</div>
+            <div class="swiper-slide">Slide 4</div>
+            <div class="swiper-slide">Slide 5</div>
+            <div class="swiper-slide">Slide 6</div>
+            <div class="swiper-slide">Slide 7</div>
+            <div class="swiper-slide">Slide 8</div>
+            <div class="swiper-slide">Slide 9</div>
+            <div class="swiper-slide">Slide 10</div>
+            <div class="swiper-slide">Slide 11</div>
+            <div class="swiper-slide">Slide 12</div>
+            <!-- <div class="swiper-slide">Slide 9</div> -->
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+
+
+
+    <script src="assets/js/aos.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/jquery-3.7.1.min.js"></script>
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <script src="assets/js/slick.min.js"></script>
+    <script src="assets/js/swiper-bundle.mjs"></script>
+    <script src="assets/light-gallery-master/assets/lightgallery.min.js"></script>
+    <script src="assets/light-gallery-master/assets/plugins/zoom/lg-zoom.min.js"></script>
+
+
+
+
+
+
+    <!-- custom js -->
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/slide-controller.js"></script>
+    <script defer type="module" src="assets/js/main.js"></script>
+
+
+    <script>
+        var swiper = new Swiper(".mySwiper2", {
+            slidesPerView: 3,
+            grid: {
+                rows: 2,
+            },
+            spaceBetween: 30,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+        });
+    </script>
+
+
+    <!-- 
+    <script defer type="module">
+        // docs
+        // https://swiperjs.com/get-started
+        // example
+        // https://swiperjs.com/demos
+        // import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.mjs'
+        // import Swiper from 'assets/js/swiper-bundle.mjs'
+
+        // 初始化 Swiper
+
+        // import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs'
+        // const mySwiper = new Swiper('.swiper-container', {
+        //     // Swiper 的設定選項
+        //     grabCursor: true,
+        //     loop: true,
+        //     pagination: {
+        //         el: ".swiper-pagination",
+        //     },
+        //     navigation: {
+        //         nextEl: ".swiper-button-next",
+        //         prevEl: ".swiper-button-prev",
+        //     },
+        // });
+
+
+
+        //     // // https://www.lightgalleryjs.com/docs/getting-started/
+        //     // // https://www.lightgalleryjs.com/demos/html-markup/
+
+        //     import lightGallery from "https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/lightgallery.es5.min.js";
+
+        //     import lgZoom from "https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/plugins/zoom/lg-zoom.es5.min.js";
+
+        //     const $lgContainer = document.getElementById("swiper-container");
+
+        //     const lg = lightGallery($lgContainer, {
+        //         speed: 500,
+        //         showZoomInOutIcons: true,
+        //         actualSize: false,
+        //         controls: true,
+        //         selector: '.swiper-slide > a',
+        //         plugins: [lgZoom]
+        //     });
+        // }
+
+    </script> -->
+</body>
+
+</html>
