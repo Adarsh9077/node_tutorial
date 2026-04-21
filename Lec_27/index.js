@@ -1,29 +1,20 @@
 import express from "express";
+import Home from "./pages/home.js"
+import Login from "./pages/login.js"
+import Submit from "./pages/submit.js"
 
 const app = express();
 
 app.get("/", (req, res) => {
-  res.send("<h1> Home page</h1>");
+  res.send(Home());
 });
 
 app.get("/login", (req, res) => {
-  res.send(`<h1>This login page...</h1>
-    <form action="/submit" method="post">
-    <input type="text" placeholder="Enter Name"/>
-    <br/>
-    <br/>
-    <input type="password" placeholder="Enter Password"/>
-    <br/>
-    <br/>
-    <button>Login</button>
-    </form>
-    `);
+  res.send(Login());
 });
 
 app.post("/submit", (req, res) => {
-  res.send(`<h1>This submit page....</h1>
-    <h3>Data Submit</h3>
-    `);
+  res.send(Submit());
 });
 
 app.listen(3250);
