@@ -1,0 +1,18 @@
+import express from "express";
+import path from "path";
+
+const app = express();
+
+app.get("/", (req, res) => {
+  const absPath = path.resolve("view/home.html");
+  //   console.log(absPath + " ---------------- ");
+  res.sendFile(absPath);
+});
+
+app.get("/login", (req, res) => {
+    
+  const absPath = path.resolve("view/login.html");
+//   res.sendFile()
+});
+
+app.listen(3200);
