@@ -5,6 +5,9 @@ const app = express();
 
 const absPath = path.resolve("view");
 
+const publicPath = path.resolve("public");
+// console.log(publicPath);
+app.use(express.static(publicPath));
 app.get("/", (req, res) => {
   res.sendFile(absPath + "/home.html");
 });
@@ -19,7 +22,7 @@ app.get("/about", (req, res) => {
 app.use((req, res) => {
   res.status(404).sendFile(absPath + "/404.html");
 });
-app.listen(3200);
 
+app.listen(3200);
 
 //! #29 start
