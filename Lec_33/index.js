@@ -4,7 +4,7 @@ const app = express();
 
 const publicPath = path.resolve("view");
 app.use(express.urlencoded({ extended: false }));
-app.use(express.static("public"))
+app.use(express.static("public"));
 app.get("/", (req, res) => {
   //   res.send("<h1>Home page</h1>");
   console.log(publicPath);
