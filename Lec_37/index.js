@@ -9,11 +9,14 @@ app.get("/add-user", (req, res) => {
 
 app.post("/submit-user", (req, res) => {
   console.log(req.body);
-  console.log(req.body);
-  res.render("submitUser",req.body);
+  res.render("submitUser", req.body);
+});
+
+app.get("/users", (req, res) => {
+  const usersList = ["qwerty", "asdf", "zxcv", "poiu", "john", "smith"];
+  res.render("users", { users: usersList });
 });
 
 app.listen(3200);
 
-
-// ! #38 00:00 
+// ! #38 00:00
