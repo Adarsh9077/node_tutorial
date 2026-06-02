@@ -16,11 +16,14 @@ app.set("view engine", ejs);
     const dbData = await connectDB();
 
     const users = await dbData.connection.db
-      .collection("users")
+      .collection("questions_list")
       .find({})
       .toArray();
 
     console.log(users);
+    app.get("/api", (req, res) => {
+      res.send(users);
+    });
 
     app.listen(process.env.PORT, () => {
       console.log(`Server is running on port: ${process.env.PORT}`);
@@ -30,6 +33,4 @@ app.set("view engine", ejs);
   }
 })();
 
-
-
-//! get api making : 
+// ! #lec_48 01:20

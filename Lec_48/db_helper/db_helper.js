@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 
-const DBName = "test";
+const DBName = "quiz_bank";
 
 const connectDB = async () => {
   try {
