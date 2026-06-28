@@ -2,17 +2,460 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us</title>
-    <link rel="stylesheet" href="/style/style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us · Nebula</title>
+    <!-- Font Awesome 6 (free icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        /* ----- reset & base ----- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: #0e121f;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            margin: 0;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* subtle animated background orbs */
+        .orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(70px);
+            pointer-events: none;
+            z-index: 0;
+            animation: orbFloat 16s infinite alternate ease-in-out;
+        }
+
+        .orb-1 {
+            width: 340px;
+            height: 340px;
+            top: -120px;
+            left: -80px;
+            background: radial-gradient(circle, rgba(80, 140, 255, 0.25), transparent 70%);
+        }
+
+        .orb-2 {
+            width: 400px;
+            height: 400px;
+            bottom: -140px;
+            right: -100px;
+            background: radial-gradient(circle, rgba(160, 80, 255, 0.2), transparent 70%);
+            animation-duration: 20s;
+        }
+
+        .orb-3 {
+            width: 260px;
+            height: 260px;
+            bottom: 20%;
+            left: 70%;
+            background: radial-gradient(circle, rgba(0, 210, 200, 0.18), transparent 70%);
+            filter: blur(80px);
+            animation-duration: 14s;
+        }
+
+        @keyframes orbFloat {
+            0% {
+                transform: translate(0, 0) scale(1);
+                opacity: 0.4;
+            }
+
+            100% {
+                transform: translate(25px, -30px) scale(1.2);
+                opacity: 0.7;
+            }
+        }
+
+        /* ----- main card (glass) ----- */
+        .about-card {
+            position: relative;
+            z-index: 10;
+            max-width: 720px;
+            width: 100%;
+            background: rgba(14, 20, 36, 0.6);
+            backdrop-filter: blur(16px) saturate(1.2);
+            border-radius: 3rem;
+            padding: 2.8rem 2.8rem 3.2rem;
+            border: 1px solid rgba(100, 180, 255, 0.2);
+            box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.03);
+            transition: transform 0.3s ease, box-shadow 0.4s;
+            text-align: center;
+        }
+
+        .about-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 40px 70px -18px #0b162e;
+            border-color: rgba(120, 190, 255, 0.4);
+        }
+
+        /* ----- avatar / icon ----- */
+        .avatar-ring {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 96px;
+            height: 96px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #2f4b8a, #1a2d5a);
+            border: 2px solid rgba(100, 180, 255, 0.5);
+            box-shadow: 0 8px 24px rgba(30, 80, 200, 0.3);
+            margin-bottom: 1.2rem;
+            transition: transform 0.3s;
+        }
+
+        .avatar-ring i {
+            font-size: 3.2rem;
+            color: #d6e6ff;
+            filter: drop-shadow(0 0 6px rgba(120, 200, 255, 0.3));
+        }
+
+        .avatar-ring:hover {
+            transform: scale(1.05) rotate(-4deg);
+        }
+
+        /* ----- typography ----- */
+        .badge {
+            display: inline-block;
+            background: rgba(60, 130, 255, 0.2);
+            padding: 0.25rem 1rem;
+            border-radius: 60px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+            color: #b0ccff;
+            border: 1px solid rgba(100, 170, 255, 0.2);
+            margin-bottom: 0.8rem;
+        }
+
+        .title {
+            font-size: 2.6rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #f0f7ff, #aac8ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -0.5px;
+            margin-bottom: 0.5rem;
+        }
+
+        .subhead {
+            color: #b4caf5;
+            font-size: 1.1rem;
+            font-weight: 400;
+            opacity: 0.9;
+            max-width: 80%;
+            margin: 0 auto 1.8rem;
+            line-height: 1.6;
+        }
+
+        /* ----- stats / highlights (mini grid) ----- */
+        .stats-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.8rem 2.5rem;
+            margin: 1.8rem 0 2.2rem;
+            padding: 0.2rem 0;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.2rem;
+        }
+
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #e5efff;
+            letter-spacing: 0.5px;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            color: #8aa4d9;
+            letter-spacing: 0.8px;
+        }
+
+        .stat-item i {
+            color: #6a9eff;
+            font-size: 1.1rem;
+            margin-bottom: 0.1rem;
+        }
+
+        /* ----- action buttons (glass) ----- */
+        .action-group {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1.2rem 0 0.6rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            padding: 0.75rem 2rem;
+            font-weight: 600;
+            font-size: 0.95rem;
+            font-family: inherit;
+            border-radius: 60px;
+            text-decoration: none;
+            transition: all 0.25s;
+            background: rgba(25, 35, 65, 0.5);
+            backdrop-filter: blur(6px);
+            border: 1px solid rgba(80, 150, 255, 0.3);
+            color: #e3edff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: linear-gradient(115deg, #2b4280, #17294f);
+            border-color: #4b7eff;
+            color: white;
+            box-shadow: 0 6px 18px -6px #1f3c8a;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-4px);
+            background: linear-gradient(115deg, #3d5b9c, #1f3566);
+            border-color: #7fa8ff;
+            box-shadow: 0 14px 22px -12px #0b1a3a;
+        }
+
+        .btn-outline {
+            border-color: #4b7bcb;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .btn-outline:hover {
+            background: rgba(60, 130, 255, 0.12);
+            transform: translateY(-3px);
+            border-color: #99bbff;
+            backdrop-filter: blur(8px);
+        }
+
+        .btn i {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+
+        /* ----- footer / meta link ----- */
+        .footer-meta {
+            margin-top: 2.2rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid rgba(100, 160, 255, 0.15);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 1.2rem 2rem;
+            font-size: 0.85rem;
+            color: #819cd9;
+        }
+
+        .footer-meta a {
+            color: #a8beed;
+            text-decoration: none;
+            transition: color 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .footer-meta a:hover {
+            color: #c4d8ff;
+            text-decoration: underline;
+        }
+
+        .footer-meta i {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* ----- responsive ----- */
+        @media (max-width: 600px) {
+            .about-card {
+                padding: 2rem 1.5rem 2.4rem;
+                border-radius: 2.2rem;
+            }
+
+            .title {
+                font-size: 2rem;
+            }
+
+            .subhead {
+                font-size: 0.95rem;
+                max-width: 95%;
+            }
+
+            .stats-grid {
+                gap: 1.2rem;
+            }
+
+            .stat-number {
+                font-size: 1.5rem;
+            }
+
+            .btn {
+                padding: 0.6rem 1.3rem;
+                font-size: 0.85rem;
+            }
+
+            .avatar-ring {
+                width: 80px;
+                height: 80px;
+            }
+
+            .avatar-ring i {
+                font-size: 2.6rem;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .action-group {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .btn {
+                justify-content: center;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <h1>About Us</h1>
-    <a href="/">Home</a>
-    <br>
-    <a href="/login">Login</a>
+
+    <!-- ambient orbs -->
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+
+    <!-- main card -->
+    <div class="about-card">
+
+        <!-- avatar / icon -->
+        <div class="avatar-ring">
+            <i class="fas fa-users"></i>
+        </div>
+
+        <!-- badge -->
+        <div class="badge"><i class="fas fa-star" style="margin-right: 6px;"></i> about us</div>
+
+        <!-- title & description -->
+        <h1 class="title">Nebula Studio</h1>
+        <p class="subhead">
+            We craft digital experiences with a human touch — blending design, technology, and curiosity.
+        </p>
+
+        <!-- stats (playful) -->
+        <div class="stats-grid">
+            <div class="stat-item">
+                <i class="fas fa-code"></i>
+                <span class="stat-number">12+</span>
+                <span class="stat-label">projects</span>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-heart"></i>
+                <span class="stat-number">99%</span>
+                <span class="stat-label">happiness</span>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-mug-saucer"></i>
+                <span class="stat-number">∞</span>
+                <span class="stat-label">coffee</span>
+            </div>
+        </div>
+
+        <!-- buttons -->
+        <div class="action-group">
+            <a href="/" class="btn btn-primary">
+                <i class="fas fa-house"></i> Home
+            </a>
+            <a href="/login" class="btn btn-outline">
+                <i class="fas fa-arrow-right-to-bracket"></i> Login
+            </a>
+            <a href="#" class="btn btn-outline" id="contactBtn">
+                <i class="fas fa-envelope"></i> Contact
+            </a>
+        </div>
+
+        <!-- footer with extra links -->
+        <div class="footer-meta">
+            <a href="#"><i class="fas fa-bolt"></i> 2026</a>
+            <a href="#"><i class="fab fa-twitter"></i> @nebula</a>
+            <a href="#"><i class="fas fa-palette"></i> design</a>
+            <a href="#"><i class="fas fa-arrow-up"></i> top</a>
+        </div>
+    </div>
+
+    <script>
+        (function () {
+            // small interactive demo: contact button shows ephemeral message
+            const contactBtn = document.getElementById('contactBtn');
+            const card = document.querySelector('.about-card');
+
+            function showFloatingMessage(msg) {
+                // create a small toast-like element inside the card
+                const oldToast = document.querySelector('.toast-message');
+                if (oldToast) oldToast.remove();
+
+                const toast = document.createElement('div');
+                toast.className = 'toast-message';
+                toast.style.position = 'absolute';
+                toast.style.bottom = '1.2rem';
+                toast.style.left = '50%';
+                toast.style.transform = 'translateX(-50%)';
+                toast.style.background = 'rgba(30, 50, 90, 0.85)';
+                toast.style.backdropFilter = 'blur(8px)';
+                toast.style.padding = '0.6rem 1.6rem';
+                toast.style.borderRadius = '60px';
+                toast.style.border = '1px solid rgba(100, 180, 255, 0.3)';
+                toast.style.fontSize = '0.85rem';
+                toast.style.color = '#d6e6ff';
+                toast.style.boxShadow = '0 8px 24px rgba(0,0,0,0.4)';
+                toast.style.whiteSpace = 'nowrap';
+                toast.style.zIndex = '20';
+                toast.innerText = msg;
+                card.style.position = 'relative';
+                card.appendChild(toast);
+
+                setTimeout(() => {
+                    if (toast.parentNode) toast.remove();
+                }, 2400);
+            }
+
+            if (contactBtn) {
+                contactBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    showFloatingMessage('📬 Hello! We’d love to hear from you.');
+                });
+            }
+
+            // extra: if home or login already have href, they work natively.
+            // we can add a tiny console greeting
+            console.log('✨ about us — redesigned with glass & glow');
+        })();
+    </script>
 </body>
 
 </html>
